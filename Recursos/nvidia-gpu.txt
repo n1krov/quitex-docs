@@ -1,0 +1,193 @@
+Verificación de NVIDIA (guardar/anotar por si alguna actualización la sobreescribe y aparte copiar carpetas y archivos para backup)
+
+1)
+Versión del Driver de NVIDIA:
+nvidia-smi
+o
+sudo lshw -C display
+o
+Identificar el Modelo de la GPU:
+lspci | grep -i nvidia
+
+2) 
+Drives compatibles:
+ubuntu-drivers devices
+o
+sudo apt update
+apt search nvidia-driver
+
+3)
+Localización de la Carpeta de CUDA
+ls /usr/local/cuda
+
+4)
+Variables de Entorno:
+echo $CUDA_HOME
+echo $CUDA_PATH
+
+5)
+Reinstalar la misma versión de CUDA:
+sudo /usr/local/cuda/bin/uninstall_cuda_XX.Y.pl
+sudo ./cuda_XX.Y_linux.run --toolkit --silent
+#Sustituye XX.Y con la versión exacta de CUDA que tienes instalada.
+
+6) 
+Reparación de Paquetes en Ubuntu
+sudo dpkg --configure -a
+
+7) 
+Reparar Dependencias de Paquetes:
+sudo apt-get install -f
+
+8) 
+Limpiar Paquetes Obsoletos o Dañados:
+sudo apt-get autoremove
+sudo apt-get autoclean
+
+9) 
+Reinstalar un Paquete Específico:
+sudo apt-get install --reinstall nombre-del-paquete
+
+
+
+1--- instalar nvidia
+
+# instalar dependencias
+sudo apt-get install build-essential gcc-multilib dkms
+sudo apt-get install libglew-dev libcheese7 libcheese-gtk23 libclutter-gst-2.0-0 libcogl15 libclutter-gtk-1.0-0 libclutter-1.0-0
+
+#Create a file at /etc/modprobe.d/blacklist-nouveau.conf with the following contents:
+blacklist nouveau
+options nouveau modeset=0
+
+#sudo update-initramfs -u
+
+#salir de modo gráfico
+ctrl + alt + f3
+ctrl + alt + f7 # vuelva a xorg
+
+ubuntu-drivers devices
+sudo add-apt-repository ppa:graphics-drivers
+sudo apt-get install nvidia-390
+
+(Ej. Nvidia-390 es la última versión del controlador para la serie GTX 1xxx).
+Buscarlo aqui: https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/
+
+o 
+sudo ubuntu-drivers autoinstall
+sudo apt install nvidia-340
+
+o 
+sudo apt install nvidia-*
+
+o #descargo a mano de sitio de nvidia y ejevuto
+#descargo y gurado el controlador 
+https://www.nvidia.es/Download/index.aspx?lang=es
+
+$ ls
+NVIDIA-Linux-x86_64-410.73.bin
+
+
+# check
+nvidia-smi
+
+
+---------CUDA desde el sitio oficial
+
+#busco el la version para mi sistema
+https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=runfilelocal
+
+wget http://developer.download.nvidia.com/compute/cuda/10.2/Prod/local_installers/cuda_10.2.89_440.33.01_linux.run
+chmod +x cuda_10.2.89_440.33.01_linux.run
+sudo sh cuda_10.2.89_440.33.01_linux.run
+
+sudo bash -c "echo /usr/local/cuda/lib64/ > /etc/ld.so.conf.d/cuda.conf"
+sudo ldconfig
+
+
+$ export PATH=/usr/local/cuda-7.5/bin:$PATH
+$ export LD_LIBRARY_PATH=/usr/local/cuda-7.5/lib64:$LD_LIBRARY_PATH
+
+
+-----------
+sudo prime-select intel # inica con la placa integrada 
+sudo prime-select nvidia # inica con la placa nvidia
+
+# reparar una version
+sudo apt --fix-broken install nvidia-dkms-470 --fix-missing
+
+Y eliminar de la lista negra antes descrita los drivers Nouveau y ejecutamos:
+
+sudo apt-get install nouveau-firmware
+
+sudo dpkg-reconfigure xserver-xorg
+
+----
+
+sudo ubuntu-drivers autoinstall
+
+
+------------
+sudo apt install --reinstall linux-headers-$(uname -r)
+
+sudo apt install --reinstall build-essential
+sudo apt install --reinstall dkms
+sudo apt install --reinstall linux-generic
+sudo apt install --reinstall linux-signed-generic
+
+
+sudo ubuntu-drivers autoinstall
+
+https://linuxconfig.org/how-to-install-cuda-on-ubuntu-20-04-focal-fossa-linux
+$ nvcc --version
+
+$ echo 'export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}' >> ~/.bashrc
+----
+$ sudo apt-get install linux-headers-$(uname -r)
+---
+
+--reparar paquetes
+sudo apt --fix-broken install
+
+---export path
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64\${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+---elazar cuando no vwe el pmemd
+ sudo ln -s /usr/local/cuda-10.0 /usr/local/cuda
+---
+whereis nvidia
+
+
+---Borrar eliminar
+¿Cómo desinstalar los drivers de Nvidia?:
+sudo apt-get purge nvidia *
+sudo purge nvidia*
+
+
+----Fallas revisar
+
+1) Verificar la detección de la GPU:
+lspci | grep -i nvidia
+
+2) Revisar el estado del módulo del kernel de NVIDIA:
+lsmod | grep nvidia
+sudo modprobe nvidia
+
+3) Verificar errores en el arranque del sistema:
+dmesg | grep NVRM
+
+4) Archivo .bashrc:
+export PATH=/usr/local/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+
+source ~/.bashrc
+
+5)Verificación de la Configuración de CUDA:
+nvcc -V
+
+6) Revisar conflictos de versión o bibliotecas:
+ldconfig -p | grep cuda
+
+
+
+
