@@ -8,6 +8,13 @@ Para conectarte a la vpn con openvpn, primero debes instalar openvpn en tu siste
 sudo openvpn anpetelski-config.ovpn
 ```
 
+
+En caso usar macOS, puedes ejecutar el siguiente comando:
+
+```bash
+sudo vpnd anpetelski-config.ovpn
+```
+
 Donde `anpetelski-config.ovpn` es el archivo que permite la conexion a la vpn.
 
 Te pedira un usuario y una contraseña.
