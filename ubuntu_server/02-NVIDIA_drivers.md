@@ -78,6 +78,7 @@ Si Amber o alguna otra herramienta necesita CUDA para simulaciones en GPU, inst�
 ---
 
 ### **Paso 4: Configura Amber para usar GPU**
+
 Si Amber usará GPU, asegúrate de que las herramientas de Amber estén configuradas correctamente:
 
 1. **Verifica que el binario `pmemd.cuda` esté disponible**  
