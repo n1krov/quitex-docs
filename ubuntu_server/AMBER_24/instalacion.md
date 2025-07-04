@@ -112,12 +112,3 @@ cd $AMBERHOME
 make test
 ```
 
----
-
-## 🚧 ¿Y Gaussian09?
-
-Cuando estés listo, te ayudo con Gaussian09, que requiere pasos adicionales y licencias especiales. Avísame si querés seguir con eso ahora o más adelante.
-
----
-
-¿Querés que esto te lo exporte como `.md` o `.pdf` también?
