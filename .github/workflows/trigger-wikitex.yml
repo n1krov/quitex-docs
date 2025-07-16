@@ -5,10 +5,10 @@ on:
   push:
 
     # aqui especificamos las rutas que queremos observar
-    paths:
-      # - "wiki/**"
-      # - "ubuntu_server/**"
-      - "*"
+    # paths:
+    #   - "wiki/**"
+    #   - "ubuntu_server/**"
+    #   - "*"
       
 jobs:
   dispatch:
