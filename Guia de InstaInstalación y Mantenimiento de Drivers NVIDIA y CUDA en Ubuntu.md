@@ -1,3 +1,9 @@
+---
+title: "Guía de Instalación y Mantenimiento de Drivers NVIDIA y CUDA en Ubuntu"
+author: "n1krov"
+date: "2025-07-16"
+---
+
 # Verificación de NVIDIA
 
 > Guardar/anotar por si alguna actualización la sobreescribe y aparte copiar carpetas y archivos para backup.
