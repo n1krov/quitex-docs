@@ -1,4 +1,6 @@
-
+---
+title: Instalación de NVIDIA
+date: 2024-01-01
 ---
 
 ### **Paso 1: Verifica tu GPU NVIDIA**
