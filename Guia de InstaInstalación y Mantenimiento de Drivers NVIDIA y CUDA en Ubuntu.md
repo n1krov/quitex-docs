@@ -1,6 +1,3 @@
-
----
-
 # Verificación de NVIDIA
 
 > Guardar/anotar por si alguna actualización la sobreescribe y aparte copiar carpetas y archivos para backup.

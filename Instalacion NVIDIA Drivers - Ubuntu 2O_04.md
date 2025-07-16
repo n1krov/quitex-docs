@@ -1,6 +1,3 @@
-
----
-
 # Guía de Instalación
 
 ## 1. Instalar Drivers de NVIDIA GPU
