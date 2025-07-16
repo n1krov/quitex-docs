@@ -1,4 +1,4 @@
-## 🧬 Instalación de AMBER 24 + AmberTools en Ubuntu Server
+## 🧬 Instalación de AMBER 25 + AmberTools en Ubuntu Server
 
 > 📌 **Requisitos previos**: Asegurate de tener permisos de sudo, suficiente espacio en disco (10+ GB recomendados), y una conexión a Internet activa.
 

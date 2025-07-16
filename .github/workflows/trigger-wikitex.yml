@@ -1,0 +1,20 @@
+name: Trigger Quartz Deploy
+# esto lo que hace es disparar el workflow de wikitex cuando se hace un push a la wiki
+
+on:
+  push:
+    paths:
+      - "wiki/**"
+      - "ubuntu_server/**"
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Quartz Build
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.WIKITEX_TOKEN }}
+          repository: n1krov/wikitex
+          event-type: trigger-quartz-deploy
+
