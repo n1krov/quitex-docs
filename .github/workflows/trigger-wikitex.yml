@@ -6,9 +6,10 @@ on:
 
     # aqui especificamos las rutas que queremos observar
     paths:
-      - "wiki/**"
-      - "ubuntu_server/**"
-
+      # - "wiki/**"
+      # - "ubuntu_server/**"
+      - "*"
+      
 jobs:
   dispatch:
     runs-on: ubuntu-latest
