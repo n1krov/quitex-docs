@@ -3,6 +3,8 @@ name: Trigger Quartz Deploy
 
 on:
   push:
+
+    # aqui especificamos las rutas que queremos observar
     paths:
       - "wiki/**"
       - "ubuntu_server/**"
@@ -17,4 +19,3 @@ jobs:
           token: ${{ secrets.WIKITEX_TOKEN }}
           repository: n1krov/wikitex
           event-type: trigger-quartz-deploy
-
