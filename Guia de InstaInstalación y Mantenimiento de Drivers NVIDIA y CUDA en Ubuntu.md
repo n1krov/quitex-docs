@@ -5,7 +5,7 @@ date: "2025-07-16"
 ---
 
 # Verificación de NVIDIA
-
+## test
 > Guardar/anotar por si alguna actualización la sobreescribe y aparte copiar carpetas y archivos para backup.
 
 ## 1. Versión del Driver de NVIDIA:
