@@ -8,6 +8,7 @@ Aquí encontrarás documentación técnica y tutoriales sobre servidores, CUDA, 
 - [Instalación NVIDIA Drivers - Ubuntu 20.04](Instalacion%20NVIDIA%20Drivers%20-%20Ubuntu%202O_04)
 - [Zona Horaria (Soluciones)](Zona%20Horaria%20(Soluciones))
 - [Configuración del Servidor DNS](Configuracion%20del%20Servidor%20%20DNS)
+- [Acceso al Servidor](Acceso%20al%20Servidor)
 - [Añadir Usuario (Ejemplo)](Añadir%20Usuario%20(Ejemplo))
 
 ## Secciones
